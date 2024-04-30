@@ -1,24 +1,41 @@
 package com.example.a34b.adapter
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.ImageView
+import android.widget.TextView
+import com.example.a34b.R
 
-class FruitsAdapter : BaseAdapter() {
+class FruitsAdapter(var nameList: ArrayList<String>,
+                    var imageList: ArrayList<Int>) : BaseAdapter() {
     override fun getCount(): Int {
-        TODO("Not yet implemented")
+        return nameList.size
     }
 
-    override fun getItem(p0: Int): Any {
-        TODO("Not yet implemented")
+    override fun getItem(p0: Int): Any? {
+       return null
     }
 
     override fun getItemId(p0: Int): Long {
-        TODO("Not yet implemented")
+        return 0
     }
 
-    override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
-        TODO("Not yet implemented")
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
+
+        var view : View = LayoutInflater.from(parent?.context).inflate(
+            R.layout.sample_grid_design_1,
+            parent,false)
+        var image : ImageView = view.findViewById(R.id.imageView2)
+        var label : TextView = view.findViewById(R.id.textView2)
+
+        label.text = nameList[position]
+        image.setImageResource(imageList[position])
+
+        return view
+
     }
+
 
 }
