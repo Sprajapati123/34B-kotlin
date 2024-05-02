@@ -2,13 +2,13 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="DateActivity">
-        <State />
-      </entry>
       <entry key="GridViewActivity">
         <State />
       </entry>
       <entry key="ListViewActivity">
+        <State />
+      </entry>
+      <entry key="RecyclerViewActivity">
         <State />
       </entry>
       <entry key="ScrollViewActivity">

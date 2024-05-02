@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.a34b.adapter.FruitsAdapter
 
 class GridViewActivity : AppCompatActivity() {
     lateinit var gridView: GridView
@@ -17,6 +18,19 @@ class GridViewActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_grid_view)
         gridView = findViewById(R.id.gridView)
+
+        fillArray()
+
+        var adapter = FruitsAdapter(nameList,imageList)
+        gridView.adapter = adapter
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+    }
+    fun fillArray(){
         nameList.add("Apple")
         nameList.add("Banana")
         nameList.add("Cherry")
@@ -27,12 +41,5 @@ class GridViewActivity : AppCompatActivity() {
         imageList.add(R.drawable.cherry)
         imageList.add(R.drawable.dragon_fruit)
         imageList.add(R.drawable.grapes)
-
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
     }
 }
