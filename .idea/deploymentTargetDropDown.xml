@@ -2,10 +2,10 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="GridViewActivity">
+      <entry key="FirstActivity">
         <State />
       </entry>
-      <entry key="ListViewActivity">
+      <entry key="GridViewActivity">
         <State />
       </entry>
       <entry key="RecyclerViewActivity">
