@@ -32,4 +32,26 @@ class MessageActivity : AppCompatActivity() {
             insets
         }
     }
+
+    override fun onStart() {
+        super.onStart()
+    }
+
+    override fun onPause() {
+        super.onPause()
+    }
+
+    override fun onStop() {
+        super.onStop()
+    }
+    override fun onResume() {
+        super.onResume()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+    }
+    override fun onRestart() {
+        super.onRestart()
+    }
 }
