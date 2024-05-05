@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme._34B"
         tools:targetApi="31">
+
         <activity
             android:name=".MainActivity4"
             android:exported="true">
@@ -79,10 +80,10 @@
         </activity>
         <activity
             android:name=".MainActivity3"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity2"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".EditTextActivity"
             android:exported="true">
@@ -93,7 +94,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FirstActivity"
+            android:name=".MessageActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

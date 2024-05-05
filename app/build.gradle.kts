@@ -4,6 +4,11 @@ plugins {
 }
 
 android {
+
+    buildFeatures{
+        viewBinding = true
+    }
+    
     namespace = "com.example.a34b"
     compileSdk = 34
 
