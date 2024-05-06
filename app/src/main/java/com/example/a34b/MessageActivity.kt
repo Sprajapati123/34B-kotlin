@@ -1,8 +1,10 @@
 package com.example.a34b
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.widget.CheckBox
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -13,7 +15,14 @@ import com.example.a34b.databinding.ActivityMessageBinding
 class MessageActivity : AppCompatActivity() {
 
     lateinit var messageBinding: ActivityMessageBinding
+
+    lateinit var sharedPreferences: SharedPreferences
+
+    var username : String? = null
+    var message : String? = null
+    var remember : Boolean = false
     var counter = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -42,6 +51,22 @@ class MessageActivity : AppCompatActivity() {
 
     override fun onPause() {
         Log.d("Message","onPause Called")
+        sharedPreferences = getSharedPreferences("userData", MODE_PRIVATE)
+
+        username = messageBinding.username.text.toString()
+        message = messageBinding.message.text.toString()
+        remember = messageBinding.rememberMe.isChecked
+
+        var editor = sharedPreferences.edit()
+        editor.putString("username",username)
+        editor.putString("message",message)
+        editor.putBoolean("remember",remember)
+        editor.putInt("counter",counter)
+
+        editor.apply()
+
+        Toast.makeText(applicationContext,"Data Saved",Toast.LENGTH_LONG).show()
+
         super.onPause()
     }
 
@@ -51,6 +76,7 @@ class MessageActivity : AppCompatActivity() {
     }
     override fun onResume() {
         Log.d("Message","onResume Called")
+
         super.onResume()
     }
 
