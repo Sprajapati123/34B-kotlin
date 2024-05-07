@@ -53,9 +53,9 @@ class MessageActivity : AppCompatActivity() {
         Log.d("Message","onPause Called")
         sharedPreferences = getSharedPreferences("userData", MODE_PRIVATE)
 
-        username = messageBinding.username.text.toString()
-        message = messageBinding.message.text.toString()
-        remember = messageBinding.rememberMe.isChecked
+        username = messageBinding.usernameId.text.toString()
+        message = messageBinding.messageId.text.toString()
+        remember = messageBinding.rememberMeId.isChecked
 
         var editor = sharedPreferences.edit()
         editor.putString("username",username)
@@ -69,15 +69,29 @@ class MessageActivity : AppCompatActivity() {
 
         super.onPause()
     }
+    override fun onResume() {
+        Log.d("Message","onResume Called")
+        sharedPreferences = getSharedPreferences("userData", MODE_PRIVATE)
+        username = sharedPreferences.getString("username","")
+        message = sharedPreferences.getString("message","")
+        remember = sharedPreferences.getBoolean("remember",false)
+        counter=  sharedPreferences.getInt("remember",0)
+
+//        messageBinding.idOfViews
+
+        messageBinding.usernameId.setText(username)
+        messageBinding.messageId.setText(message)
+        messageBinding.rememberMeId.isChecked = remember
+        messageBinding.btnCounter.text = counter.toString()
+
+
+
+        super.onResume()
+    }
 
     override fun onStop() {
         Log.d("Message","onStop Called")
         super.onStop()
-    }
-    override fun onResume() {
-        Log.d("Message","onResume Called")
-
-        super.onResume()
     }
 
     override fun onDestroy() {
