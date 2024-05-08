@@ -15,9 +15,7 @@ import com.example.a34b.databinding.ActivityMessageBinding
 class MessageActivity : AppCompatActivity() {
 
     lateinit var messageBinding: ActivityMessageBinding
-
     lateinit var sharedPreferences: SharedPreferences
-
     var username : String? = null
     var message : String? = null
     var remember : Boolean = false
@@ -30,11 +28,10 @@ class MessageActivity : AppCompatActivity() {
         var view = messageBinding.root
         setContentView(view)
         Log.d("Message","onCreate Called")
+
         messageBinding.btnCounter.setOnClickListener {
-            counter++
             messageBinding.btnCounter.text = counter.toString()
         }
-
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
