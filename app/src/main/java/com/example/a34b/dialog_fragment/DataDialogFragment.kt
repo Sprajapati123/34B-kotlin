@@ -5,56 +5,35 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 import com.example.a34b.R
+import com.example.a34b.databinding.FragmentDataDialogBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [DataDialogFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class DataDialogFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+class DataDialogFragment : DialogFragment() {
+    lateinit var dataDialogBinding: FragmentDataDialogBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_data_dialog, container, false)
+        dataDialogBinding= FragmentDataDialogBinding.inflate(inflater,
+            container,false)
+
+        dataDialogBinding.btnCancel.setOnClickListener {
+            dialog!!.dismiss()
+        }
+
+        dataDialogBinding.btnOk.setOnClickListener {
+            var name : String = dataDialogBinding.editTextText3.text.toString()
+            var age : Int = dataDialogBinding.editTextText4.text.toString().toInt()
+
+            var baseButtonActivity : BaseButtonActivity = activity as BaseButtonActivity
+
+            baseButtonActivity.setData(name,age)
+            dialog!!.dismiss()
+        }
+
+        return dataDialogBinding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DataDialogFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DataDialogFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

@@ -18,14 +18,16 @@ class BaseButtonActivity : AppCompatActivity() {
         baseButtonBinding = ActivityBaseButtonBinding.inflate(layoutInflater)
         setContentView(baseButtonBinding.root)
 
+
         baseButtonBinding.btnOpen.setOnClickListener {
 
         }
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+
+    }
+
+     fun setData(username: String,age :Int) {
+        baseButtonBinding.lblname.text = username
+        baseButtonBinding.lblAge.text = age.toString()
     }
 }
