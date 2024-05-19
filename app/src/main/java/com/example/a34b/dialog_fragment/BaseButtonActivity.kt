@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.FragmentManager
 import com.example.a34b.R
 import com.example.a34b.databinding.ActivityBaseBinding
 import com.example.a34b.databinding.ActivityBaseButtonBinding
@@ -20,6 +21,11 @@ class BaseButtonActivity : AppCompatActivity() {
 
 
         baseButtonBinding.btnOpen.setOnClickListener {
+            var fragmentManager : FragmentManager = supportFragmentManager
+
+            var dataDialogFragment = DataDialogFragment()
+
+            dataDialogFragment.show(fragmentManager,"DataDialogFragment")
 
         }
 
