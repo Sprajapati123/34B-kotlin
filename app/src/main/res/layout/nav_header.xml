@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="bottom"
+    android:paddingLeft="20dp"
+    android:paddingBottom="20dp"
+    android:background="@android:color/holo_red_dark"
+    android:layout_height="250dp">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:src="@drawable/apple"
+        android:layout_height="100dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Good morning, user"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
